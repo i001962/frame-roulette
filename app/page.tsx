@@ -41,6 +41,20 @@ export default async function Home({
   const previousFrame = getPreviousFrame<State>(searchParams);
 
   const validMessage = await validateActionSignature(previousFrame.postBody);
+  let username = '';
+  let profilePicUrl = '';
+
+  if (validMessage?.data.fid) {
+    const response = await fetch(`https://searchcaster.xyz/api/profiles?fid=${validMessage.data.fid}`);
+    if (response.ok) {
+      const data = await response.json();
+      // Assuming the API response structure, adjust accordingly
+      username = data[0].body.username;
+      profilePicUrl = data[0].body.avatarUrl;
+      console.log("username", username,profilePicUrl);
+    }
+  }
+  console.log("validMessage", validMessage?.data.fid,username,profilePicUrl);
 
   const [state, dispatch] = useFramesReducer<State>(
     reducer,
@@ -63,17 +77,17 @@ export default async function Home({
         <FrameImage
           src={
             state.page === 1
-              ? "http://framesjs.org/og.png"
-              : `http://framesjs.org/frames/frame${state.page}.png`
+              ? "welcome.png"
+              : "welcome2.png"
           }
         />
         {state.page !== 1 ? (
           <FrameButton onClick={dispatch}>←</FrameButton>
         ) : null}
-        {state.page < 6 ? (
+        {state.page < 2 ? (
           <FrameButton onClick={dispatch}>→</FrameButton>
         ) : (
-          <FrameButton href="https://framesjs.org">Open frames.js</FrameButton>
+          <FrameButton href={`https://cocolab.vercel.app/?room=chat1&video=true&audio=true&username=${username}`}>Open video chat</FrameButton>
         )}
       </FrameContainer>
     </div>
