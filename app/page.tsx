@@ -54,7 +54,7 @@ export default async function Home({
       console.log("username", username,profilePicUrl);
     }
   }
-  console.log("validMessage", validMessage?.data.fid,username,profilePicUrl);
+  //console.log("validMessage", validMessage?.data.fid,username,profilePicUrl);
 
   const [state, dispatch] = useFramesReducer<State>(
     reducer,
@@ -65,7 +65,7 @@ export default async function Home({
   // then, when done, return next frame
   return (
     <div>
-      <a href="https://framesjs.org">frames.js</a> homeframe{" "}
+      <a href="https://cocolab.vercel.app/?room=chat1">Video Chat</a> homeframe{" "}
       {process.env.NODE_ENV === "development" ? (
         <Link href="/debug">Debug</Link>
       ) : null}
@@ -77,8 +77,8 @@ export default async function Home({
         <FrameImage
           src={
             state.page === 1
-              ? "welcome.png"
-              : "welcome2.png"
+            ? `${process.env.NEXT_PUBLIC_HOST}/welcome.png`
+            : `${process.env.NEXT_PUBLIC_HOST}/welcome2.png`
           }
         />
         {state.page !== 1 ? (
