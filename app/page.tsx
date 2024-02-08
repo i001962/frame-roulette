@@ -65,7 +65,7 @@ export default async function Home({
   // then, when done, return next frame
   return (
     <div>
-      <a href="https://cocolab.vercel.app/?room=chat1">Video Chat</a> homeframe{" "}
+      <a href="https://tophattalks.vercel.app/?room=chat1">TopHatTalks</a> homeframe{" "}
       {process.env.NODE_ENV === "development" ? (
         <Link href="/debug">Debug</Link>
       ) : null}
@@ -87,7 +87,7 @@ export default async function Home({
         {state.page < 2 ? (
           <FrameButton onClick={dispatch}>→</FrameButton>
         ) : (
-          <FrameButton href={`https://cocolab.vercel.app/?room=chat1&video=true&audio=true&username=${username}`}>Open video chat</FrameButton>
+          <FrameButton href={`https://tophattalks.vercel.app/?room=chat1&video=true&audio=true&username=${username}`}>Open TopHat Talks</FrameButton>
         )}
       </FrameContainer>
     </div>
