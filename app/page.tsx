@@ -65,7 +65,7 @@ export default async function Home({
   // then, when done, return next frame
   return (
     <div>
-      <a href="https://tophattalks.vercel.app/?room=degen1">Top Hat Talks</a> Homeframe{" "}
+      <a href="https://tophattalks.vercel.app/?room=degen1&video=true">Top Hat Talks</a> Homeframe{" "}
      {/*  {process.env.NODE_ENV === "development" ? (
         <Link href="/debug">Debug</Link>
       ) : null} */}
@@ -87,7 +87,7 @@ export default async function Home({
         {state.page < 2 ? (
           <FrameButton onClick={dispatch}>→</FrameButton>
         ) : (
-          <FrameButton href={`https://tophattalks.vercel.app/?room=degen1&video=true&audio=true&username=${username}`}>Open Top Hat Talks</FrameButton>
+          <FrameButton href={`https://tophattalks.vercel.app/?room=degen1&video=true&username=${username}`}>Open Top Hat Talks</FrameButton>
         )}
       </FrameContainer>
     </div>
