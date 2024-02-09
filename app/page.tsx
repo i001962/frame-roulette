@@ -65,10 +65,10 @@ export default async function Home({
   // then, when done, return next frame
   return (
     <div>
-      <a href="https://tophattalks.vercel.app/?room=degen1">Top Hat Talks</a> homeframe{" "}
-      {process.env.NODE_ENV === "development" ? (
+      <a href="https://tophattalks.vercel.app/?room=degen1">Top Hat Talks</a> Homeframe{" "}
+     {/*  {process.env.NODE_ENV === "development" ? (
         <Link href="/debug">Debug</Link>
-      ) : null}
+      ) : null} */}
       <FrameContainer
         postUrl="/frames"
         state={state}
